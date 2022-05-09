@@ -3,13 +3,16 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 3.0"
+
     }
   }
 
   backend "s3" {
-    bucket = "unified-installer-build-pipeline-dev"
-    region = "us-east-2"
-    key    = "dev/s3-tf-test"
+    bucket     = "unified-installer-build-pipeline-dev"
+    region     = "us-east-2"
+    key        = "dev/s3-tf-test"
+    access_key = vars.access_key
+    secret_key = vars.secret_key
   }
 }
 
